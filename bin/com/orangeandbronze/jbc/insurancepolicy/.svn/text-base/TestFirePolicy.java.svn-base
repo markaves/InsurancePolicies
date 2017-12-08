@@ -1,0 +1,20 @@
+package com.orangeandbronze.jbc.insurancepolicy;
+
+import java.math.BigDecimal;
+
+import junit.framework.TestCase;
+
+import com.orangeandbronze.jbc.insurancepolicy.property.Property;
+
+public class TestFirePolicy extends TestCase {
+
+	public void testGetPremium() {
+		PolicyHolder holder = new PolicyHolder("Calen", "Legaspi");
+		Property property = new Property(1998, 400);
+		Policy policy = new FirePolicy(holder, property);
+		BigDecimal actual = policy.getPremium();
+		BigDecimal expected = new BigDecimal("5000.00");
+		assertEquals(expected, actual);
+	}
+
+}

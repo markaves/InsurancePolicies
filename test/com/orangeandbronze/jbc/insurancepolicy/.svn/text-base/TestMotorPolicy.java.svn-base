@@ -1,0 +1,22 @@
+package com.orangeandbronze.jbc.insurancepolicy;
+
+import java.math.BigDecimal;
+
+import junit.framework.TestCase;
+
+import com.orangeandbronze.jbc.insurancepolicy.vehicle.BodyType;
+import com.orangeandbronze.jbc.insurancepolicy.vehicle.Make;
+import com.orangeandbronze.jbc.insurancepolicy.vehicle.Vehicle;
+
+public class TestMotorPolicy extends TestCase {
+
+	public void testGetPremium() throws Exception {
+		PolicyHolder holder = new PolicyHolder("Calen", "Legaspi");
+		Vehicle vehicle = new Vehicle(Make.TOYOTA, BodyType.SEDAN, 2004);
+		Policy policy = new MotorPolicy(holder, vehicle);
+		BigDecimal actual = policy.getPremium();
+		BigDecimal expected = new BigDecimal("2600.00");
+		assertEquals(expected, actual);
+	}
+
+}
